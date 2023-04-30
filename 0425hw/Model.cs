@@ -10,10 +10,11 @@ namespace _0425hw
 {
     internal class Model
     {
-        public string ParseDictionary(string Word)
+        public async string ParseDictionary(string Word)
         {
+            await Task.Run(() => {
             int MaxSimilarity = 0;
-            string Replacement="";
+            string Replacement = "";
             string Words;
             try
             {
@@ -24,7 +25,7 @@ namespace _0425hw
                 foreach (string s in SplitText)
                 {
                     int CurSimilarity = 0;
-                    for(int i=0;i<Word.Length;i++)
+                    for (int i = 0; i < Word.Length; i++)
                     {
                         if (Word[i] == s[i])
                         {
@@ -39,10 +40,11 @@ namespace _0425hw
                 }
                 return Replacement;
             }
-            catch(Exception ex )
+            catch (Exception ex)
             {
                 return ex.Message;
             }
+                });
         }
     }
 }
