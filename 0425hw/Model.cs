@@ -10,9 +10,9 @@ namespace _0425hw
 {
     internal class Model
     {
-        public async string ParseDictionary(string Word)
+        public async Task<string> ParseDictionary(string Word)
         {
-            await Task.Run(() => {
+            var Result=await Task<string>.Run(() => {
             int MaxSimilarity = 0;
             string Replacement = "";
             string Words;
@@ -45,6 +45,7 @@ namespace _0425hw
                 return ex.Message;
             }
                 });
+            return Result;
         }
     }
 }

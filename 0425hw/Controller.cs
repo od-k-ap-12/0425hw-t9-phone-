@@ -13,7 +13,7 @@ namespace _0425hw
         public string ReplacementSearch(string Text)
         {
             string Word = Text.Split(new char[] { ' ', ',', '\n', '.' }, StringSplitOptions.RemoveEmptyEntries).Last();
-            return model.ParseDictionary(Word);
+            return model.ParseDictionary(Word).Result;
         }
         public void ButtonColorControl(Button[] buttons, KeyPressEventArgs e)
         {
