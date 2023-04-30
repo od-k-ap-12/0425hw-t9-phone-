@@ -9,11 +9,11 @@ namespace _0425hw
 {
     internal class Controller
     {
-        Model model=new Model();
+        Dictionary dictionary=new Dictionary();
         public string ReplacementSearch(string Text)
         {
             string Word = Text.Split(new char[] { ' ', ',', '\n', '.' }, StringSplitOptions.RemoveEmptyEntries).Last();
-            return model.ParseDictionary(Word).Result;
+            return dictionary.ParseDictionary(Word).Result;
         }
         public void ButtonColorControl(Button[] buttons, KeyPressEventArgs e)
         {
@@ -27,6 +27,17 @@ namespace _0425hw
                 {
                     button.BackColor = Color.Gray;
                 }
+            }
+        }
+        public string AddNewWord(string Word)
+        {
+            if (dictionary.AddNewWord(Word) == true)
+            {
+                return "New word added";
+            }
+            else
+            {
+                return "This word already exists";
             }
         }
     }

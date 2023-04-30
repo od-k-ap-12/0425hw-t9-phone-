@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
-using System.Resources;
-
-namespace _0425hw
+﻿namespace _0425hw
 {
-    internal class Model
+    internal class Dictionary
     {
         public async Task<string> ParseDictionary(string Word)
         {
@@ -46,6 +38,26 @@ namespace _0425hw
             }
                 });
             return Result;
+        }
+        public bool AddNewWord (string Word)
+        {
+            bool flag = false;
+            StreamReader sr = new StreamReader("eng.txt");
+            string Words = sr.ReadToEnd();
+            sr.Close();
+            string[] SplitText = Words.Split(new char[] { ' ', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+            foreach (string s in SplitText)
+            {
+                if (s == Word)
+                {
+                    flag = true;
+                    return false;
+                }
+            }
+            StreamWriter sw=new StreamWriter("eng.txt",true);
+            sw.WriteLine(Word);
+            sw.Close();
+            return true;
         }
     }
 }

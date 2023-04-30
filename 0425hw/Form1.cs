@@ -9,7 +9,7 @@ namespace _0425hw
         Button[]? buttons = null;
         public Form1()
         {
-            controller=new Controller(); 
+            controller = new Controller();
             InitializeComponent();
         }
 
@@ -17,15 +17,20 @@ namespace _0425hw
         {
             controller.ReplacementSearch(richTextBox1.Text);
             buttons = this.Controls.OfType<Button>().ToArray();
-            controller.ButtonColorControl(buttons,e);
+            controller.ButtonColorControl(buttons, e);
         }
 
         private void button40_Click(object sender, EventArgs e)
         {
-           string[] SplitText=richTextBox1.Text.Split(new char[] { ' ',',', '\n', '.'},StringSplitOptions.RemoveEmptyEntries);
-           int place = richTextBox1.Text.LastIndexOf(SplitText.Last());
-           richTextBox1.Text.Remove(place, SplitText.Last().Length).Insert(place, button40.Text);
+            string[] SplitText = richTextBox1.Text.Split(new char[] { ' ', ',', '\n', '.' }, StringSplitOptions.RemoveEmptyEntries);
+            int place = richTextBox1.Text.LastIndexOf(SplitText.Last());
+            richTextBox1.Text.Remove(place, SplitText.Last().Length).Insert(place, button40.Text);
 
+        }
+
+        private void buttonAddNewWord_Click(object sender, EventArgs e)
+        {
+            textBox1.Text=controller.AddNewWord(textBox1.Text);
         }
     }
 }

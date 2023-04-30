@@ -69,6 +69,8 @@
             button38 = new Button();
             button39 = new Button();
             button40 = new Button();
+            buttonAddNewWord = new Button();
+            textBox1 = new TextBox();
             SuspendLayout();
             // 
             // richTextBox1
@@ -518,12 +520,34 @@
             button40.UseVisualStyleBackColor = false;
             button40.Click += button40_Click;
             // 
+            // buttonAddNewWord
+            // 
+            buttonAddNewWord.BackColor = Color.Gray;
+            buttonAddNewWord.FlatStyle = FlatStyle.Flat;
+            buttonAddNewWord.Location = new Point(164, 522);
+            buttonAddNewWord.Name = "buttonAddNewWord";
+            buttonAddNewWord.Size = new Size(144, 29);
+            buttonAddNewWord.TabIndex = 46;
+            buttonAddNewWord.Text = "Добавить новое слово";
+            buttonAddNewWord.UseVisualStyleBackColor = false;
+            buttonAddNewWord.Click += buttonAddNewWord_Click;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(10, 522);
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(146, 29);
+            textBox1.TabIndex = 47;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.WindowFrame;
-            ClientSize = new Size(320, 519);
+            ClientSize = new Size(320, 563);
+            Controls.Add(textBox1);
+            Controls.Add(buttonAddNewWord);
             Controls.Add(button40);
             Controls.Add(button39);
             Controls.Add(button37);
@@ -570,6 +594,7 @@
             Text = "Form1";
             KeyPress += Form1_KeyPress;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -615,5 +640,7 @@
         private Button button38;
         private Button button39;
         private Button button40;
+        private Button buttonAddNewWord;
+        private TextBox textBox1;
     }
 }
